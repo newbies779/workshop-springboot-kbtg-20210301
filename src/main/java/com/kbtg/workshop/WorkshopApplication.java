@@ -13,10 +13,11 @@ public class WorkshopApplication {
 
 		String[] beans = context.getBeanDefinitionNames();
 
-		for (String bean : beans) {
-			System.out.println(bean);
-		}
-		System.out.println(context.getBeanDefinitionCount());
+//		for (String bean : beans) {
+//			System.out.println(bean);
+//		}
+//		System.out.println(context.getBeanDefinitionCount());
+
 	}
 
 }
