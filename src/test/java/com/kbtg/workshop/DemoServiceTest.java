@@ -24,8 +24,8 @@ public class DemoServiceTest {
         random = new Random1();
         demoService.setRandom(random);
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            String actualResult = demoService.generateData(myName);
+        assertThrows(RuntimeException.class, () -> {
+            demoService.generateData(myName);
         });
     }
 }
