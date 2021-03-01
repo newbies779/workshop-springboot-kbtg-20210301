@@ -13,18 +13,22 @@ public class DemoServiceTest {
     @Test
     @DisplayName("แรนด้อมต้องได้ค่า 5")
     public void random_5() {
-        Random random = new Random5();
         DemoService demoService = new DemoService();
 
 //      Assert True
-        demoService.setRandom(random);
+        demoService.setRandom(new Random5());
         String actual = demoService.generateData(this.myName);
         assertEquals(actual, this.myName+5);
+    }
+
+    @Test
+    @DisplayName("แรนด้อมต้อง Throws")
+    public void random_1() {
+
+        DemoService demoService = new DemoService();
 
 //      Assert Throws
-        random = new Random1();
-        demoService.setRandom(random);
-
+        demoService.setRandom(new Random1());
         assertThrows(RuntimeException.class, () -> {
             demoService.generateData(this.myName);
         });
