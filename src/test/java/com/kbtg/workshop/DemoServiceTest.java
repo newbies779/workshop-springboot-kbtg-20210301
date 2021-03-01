@@ -29,9 +29,10 @@ public class DemoServiceTest {
 
 //      Assert Throws
         demoService.setRandom(new Random1());
-        assertThrows(RuntimeException.class, () -> {
+        Exception e = assertThrows(RuntimeException.class, () -> {
             demoService.generateData(this.myName);
         });
+        assertEquals(e.getMessage(), "Invalid number with 1");
     }
 }
 
