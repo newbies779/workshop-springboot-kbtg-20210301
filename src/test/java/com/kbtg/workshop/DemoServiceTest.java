@@ -8,24 +8,25 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DemoServiceTest {
+    private String myName = "Hello";
+
     @Test
     @DisplayName("แรนด้อมต้องได้ค่า 5")
     public void random_5() {
-        String myName = "Kanor";
         Random random = new Random5();
         DemoService demoService = new DemoService();
 
 //      Assert True
         demoService.setRandom(random);
-        String actual = demoService.generateData(myName);
-        assertEquals(actual, myName+5);
+        String actual = demoService.generateData(this.myName);
+        assertEquals(actual, this.myName+5);
 
 //      Assert Throws
         random = new Random1();
         demoService.setRandom(random);
 
         assertThrows(RuntimeException.class, () -> {
-            demoService.generateData(myName);
+            demoService.generateData(this.myName);
         });
     }
 }
