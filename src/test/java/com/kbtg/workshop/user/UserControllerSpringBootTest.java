@@ -1,5 +1,6 @@
 package com.kbtg.workshop.user;
 
+import com.kbtg.workshop.DemoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,5 +27,17 @@ class UserControllerSpringBootTest {
 
         UserResponse expected = new UserResponse(1, "test", 30);
         assertEquals(expected, response);
+
+//        UserService userService = new UserService();
+//        assertThrows(RuntimeException.class, () -> {
+//            userService.getInfo(11);
+//        });
+    }
+
+    @Test
+    void userNotFoundWithUserId15() {
+        ErrorResponse errorResponse = restTemplate.getForObject("/user/15", ErrorResponse.class);
+        assertEquals(1234, errorResponse.getCode());
+        assertEquals("User not found id15", errorResponse.getMessage());
     }
 }
