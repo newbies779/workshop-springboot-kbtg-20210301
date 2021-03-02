@@ -38,6 +38,6 @@ class UserControllerSpringBootTest {
     void userNotFoundWithUserId15() {
         ErrorResponse errorResponse = restTemplate.getForObject("/user/15", ErrorResponse.class);
         assertEquals(1234, errorResponse.getCode());
-        assertEquals("User not found id15", errorResponse.getMessage());
+        assertEquals("User not found id=15", errorResponse.getMessage());
     }
 }

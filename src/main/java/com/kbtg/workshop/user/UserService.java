@@ -9,6 +9,6 @@ public class UserService {
             return new UserResponse(id, "test", 30);
         }
 
-        throw new UserNotFoundException("User not found id"+id);
+        throw new UserNotFoundException("User not found id="+id);
     }
 }
